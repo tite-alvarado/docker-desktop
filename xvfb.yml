@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  desktop:
+    image: ${DESKTOP_IMAGE:-desk} 
+    ports:
+      - ${VNC_PORT:-5900}:5900/tcp
+    volumes:
+      - "./${DOWNLOAD_FOLDER:-downloads}:/root/Downloads:rw"
+    deploy:
+      resources:
+        limits:
+          memory: 192M
